@@ -2,19 +2,21 @@
 
 require_once("vendor/autoload.php");
 
-$app = new \Slim\Slim();
+use \Slim\Slim;
+use \Hcode\Page;
+
+
+$app = new Slim();
 
 $app->config('debug', true);
 
 $app->get('/', function() {
     
-	$sql = new Hcode\DB\Sql();
+	$page = new Page(); //chama o construtor, entao, o header
 
-	$results = $sql->select("SELECT * from tb_users");
+	$page->setTpl("index"); // chama o conteudo, entao, o index
 
-	echo json_encode($results);
-
-});
+});// finalizou entao chama o destruct, entao, o footer
 
 $app->run();
 
