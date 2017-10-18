@@ -12,13 +12,13 @@ class Page{
 		"data"=>[]
 	];
 
-	public function __construct($opts = array()){ //header
+	public function __construct($opts = array(), $tpl_dir = "/views/"){ //header
 
 		$this->options = array_merge($this->defaults, $opts);//mescla arrays o ultimo sempre sobrescreva os primeiros
 
 		$config = array(
-			"tpl_dir"=> /*$_SERVER["DOCUMENT_ROOT"].*/"C:/xampp/htdocs/ecommerce/views/", //traz a pasta root do app
-			"cache_dir"=> /*$_SERVER["DOCUMENT_ROOT"].*/"C:/xampp/htdocs/ecommerce/views-cache/",
+			"tpl_dir"=> $_SERVER["DOCUMENT_ROOT"].$tpl_dir, //traz a pasta root do app
+			"cache_dir"=> $_SERVER["DOCUMENT_ROOT"]."/views-cache/",
 			"debug"=>false
 		);
 
